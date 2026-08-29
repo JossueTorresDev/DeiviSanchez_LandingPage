@@ -57,7 +57,7 @@ export default function Contact() {
           <p className="text-red-400 text-xs font-bold tracking-widest uppercase mb-3">
             Contacto y Reservas
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
             Ven a <span className="text-red-500">visitarnos</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base">
@@ -114,7 +114,7 @@ export default function Contact() {
           </div>
 
           {/* Reserva card */}
-          <div className="bg-[#161616] border border-white/8 rounded-2xl p-8 flex flex-col gap-6">
+          <div className="bg-[#161616] border border-white/8 rounded-2xl p-5 sm:p-8 flex flex-col gap-6">
             <div>
               <h3 className="text-white text-xl font-black mb-2">¿Listo para reservar?</h3>
               <p className="text-gray-500 text-sm leading-relaxed">

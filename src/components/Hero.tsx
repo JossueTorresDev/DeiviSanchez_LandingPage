@@ -29,20 +29,20 @@ export default function Hero() {
           <Star size={13} className="text-yellow-400 fill-yellow-400" />
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
           El Sabor de la{' '}
           <span className="text-red-500">Brasa</span>{' '}
           <br className="hidden md:block" />
           en Cada Corte
         </h1>
 
-        <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-gray-300 text-base md:text-xl max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-2">
           Carnes seleccionadas a la parrilla, sabores que conquistan. Una
           experiencia gastronómica que une tradición y fuego en cada plato.
         </p>
 
         {/* Action buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10 md:mb-14 px-4 sm:px-0">
           <a
             href="#menu"
             className="px-8 py-4 bg-red-700 hover:bg-red-600 text-white font-bold text-base rounded-full transition-colors duration-200 shadow-lg shadow-red-900/40"
@@ -60,14 +60,14 @@ export default function Hero() {
         </div>
 
         {/* Info pills */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 px-4">
           <div className="flex items-center gap-2 text-gray-300 text-sm">
-            <MapPin size={16} className="text-red-400" />
+            <MapPin size={16} className="text-red-400 flex-shrink-0" />
             <span>Av. Central 1240, Ciudad</span>
           </div>
           <div className="hidden sm:block w-px h-4 bg-gray-600" />
           <div className="flex items-center gap-2 text-gray-300 text-sm">
-            <Clock size={16} className="text-red-400" />
+            <Clock size={16} className="text-red-400 flex-shrink-0" />
             <span>Lun – Dom: 12:00 – 23:00</span>
           </div>
           <div className="hidden sm:block w-px h-4 bg-gray-600" />

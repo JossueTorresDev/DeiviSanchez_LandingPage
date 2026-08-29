@@ -23,7 +23,7 @@ export default function Menu({ onOpenModal }: Props) {
           <p className="text-red-400 text-xs font-bold tracking-widest uppercase mb-3">
             Nuestro Menú
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
             Cortes que <span className="text-red-500">enamoran</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base leading-relaxed">
@@ -32,13 +32,13 @@ export default function Menu({ onOpenModal }: Props) {
           </p>
         </div>
 
-        {/* Category filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        {/* Category filter — scrollable on mobile */}
+        <div className="flex overflow-x-auto sm:flex-wrap sm:justify-center gap-2 mb-12 pb-2 sm:pb-0 -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-hide">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+              className={`flex-shrink-0 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
                 activeCategory === cat.id
                   ? 'bg-red-700 text-white shadow-lg shadow-red-900/30'
                   : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-white/20'

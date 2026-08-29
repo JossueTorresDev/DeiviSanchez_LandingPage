@@ -12,9 +12,9 @@ export default function About() {
     <section id="about" className="bg-[#0f0f0f] py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Grid layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Image block */}
-          <div className="relative">
+          <div className="relative pb-6 pr-6 sm:pb-0 sm:pr-0">
             <div className="rounded-2xl overflow-hidden aspect-[4/3]">
               <img
                 src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=900&q=80"
@@ -22,10 +22,10 @@ export default function About() {
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Floating badge */}
-            <div className="absolute -bottom-6 -right-6 bg-red-700 text-white rounded-2xl px-6 py-4 shadow-2xl shadow-red-900/50">
-              <p className="text-3xl font-black leading-none">20+</p>
-              <p className="text-sm text-red-200 mt-1">Años de sabor</p>
+            {/* Floating badge — adjusted so it doesn't clip on mobile */}
+            <div className="absolute bottom-0 right-0 sm:-bottom-6 sm:-right-6 bg-red-700 text-white rounded-2xl px-5 py-3 sm:px-6 sm:py-4 shadow-2xl shadow-red-900/50">
+              <p className="text-2xl sm:text-3xl font-black leading-none">20+</p>
+              <p className="text-xs sm:text-sm text-red-200 mt-1">Años de sabor</p>
             </div>
           </div>
 
@@ -34,7 +34,7 @@ export default function About() {
             <p className="text-red-400 text-xs font-bold tracking-widest uppercase mb-4">
               Nuestra Historia
             </p>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-6">
               Pasión por el{' '}
               <span className="text-red-500">fuego</span> y la carne
             </h2>
