@@ -13,10 +13,10 @@ function buildWhatsAppMsg(
     '',
     ...cart.map(
       (c) =>
-        `• *${c.item.name}* x${c.qty} — $${(c.item.price * c.qty).toFixed(2)}`
+        `• *${c.item.name}* x${c.qty} — S/ ${(c.item.price * c.qty).toFixed(2)}`
     ),
     '',
-    `*Total estimado: $${total.toFixed(2)}*`,
+    `*Total estimado: S/ ${total.toFixed(2)}*`,
     '',
     '¿Podría reservar una mesa para disfrutarlo? Gracias.',
   ]
@@ -143,7 +143,7 @@ export default function CartDrawer() {
                       {item.name}
                     </p>
                     <p className="text-red-400 text-sm font-bold mt-0.5">
-                      ${(item.price * qty).toFixed(2)}
+                      S/ {(item.price * qty).toFixed(2)}
                     </p>
                   </div>
 
@@ -186,7 +186,7 @@ export default function CartDrawer() {
             {/* Total */}
             <div className="flex items-center justify-between">
               <span className="text-gray-400 text-sm">Total estimado</span>
-              <span className="text-white text-xl font-black">${total.toFixed(2)}</span>
+              <span className="text-white text-xl font-black">S/ {total.toFixed(2)}</span>
             </div>
 
             {/* WhatsApp CTA */}

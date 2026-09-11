@@ -7,7 +7,7 @@ import About from './components/About'
 import Menu from './components/Menu'
 import MenuModal from './components/MenuModal'
 import Gallery from './components/Gallery'
-import Testimonials from './components/Testimonials'
+import Games from './components/Games'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CartDrawer from './components/CartDrawer'
@@ -23,8 +23,8 @@ function AppContent() {
         <Hero />
         <About />
         <Menu onOpenModal={setSelectedItem} />
+        <Games />
         <Gallery />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />

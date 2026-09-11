@@ -71,7 +71,7 @@ export default function MenuCard({ item, onViewDetails }: Props) {
 
         {/* Price + actions */}
         <div className="flex items-center justify-between pt-4 border-t border-white/8">
-          <span className="text-2xl font-black text-red-400">${item.price.toFixed(2)}</span>
+          <span className="text-2xl font-black text-red-400">S/ {item.price.toFixed(2)}</span>
 
           <button
             onClick={() => addToCart(item)}

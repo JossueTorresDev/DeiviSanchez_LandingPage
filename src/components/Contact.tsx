@@ -32,10 +32,10 @@ export default function Contact() {
         '¡Hola *Deivi Sanchez*! Me gustaría pedir lo siguiente:',
         '',
         ...cart.map(
-          (c) => `• *${c.item.name}* x${c.qty} — $${(c.item.price * c.qty).toFixed(2)}`
+          (c) => `• *${c.item.name}* x${c.qty} — S/ ${(c.item.price * c.qty).toFixed(2)}`
         ),
         '',
-        `*Total estimado: $${total.toFixed(2)}*`,
+        `*Total estimado: S/ ${total.toFixed(2)}*`,
         '',
         '¿Podría reservar una mesa para disfrutarlo? Gracias.',
       ]
@@ -150,14 +150,14 @@ export default function Contact() {
                     <li key={c.item.id} className="flex justify-between text-sm">
                       <span className="text-gray-400">{c.item.name} x{c.qty}</span>
                       <span className="text-white font-semibold">
-                        ${(c.item.price * c.qty).toFixed(2)}
+                        S/ {(c.item.price * c.qty).toFixed(2)}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <div className="flex justify-between pt-2 border-t border-white/8">
                   <span className="text-gray-500 text-sm">Total</span>
-                  <span className="text-red-400 font-black">${total.toFixed(2)}</span>
+                  <span className="text-red-400 font-black">S/ {total.toFixed(2)}</span>
                 </div>
               </div>
             )}

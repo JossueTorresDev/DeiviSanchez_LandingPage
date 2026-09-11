@@ -73,7 +73,7 @@ export default function MenuModal({ item, onClose }: Props) {
           <div className="flex items-start justify-between gap-4 mb-4">
             <h2 className="text-white text-2xl font-black leading-tight">{item.name}</h2>
             <span className="text-red-400 text-2xl font-black flex-shrink-0">
-              ${item.price.toFixed(2)}
+              S/ {item.price.toFixed(2)}
             </span>
           </div>
 

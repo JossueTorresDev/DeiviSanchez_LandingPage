@@ -4,8 +4,8 @@ const navLinks = [
   { label: 'Inicio', href: '#hero' },
   { label: 'Nosotros', href: '#about' },
   { label: 'Menú', href: '#menu' },
+  { label: 'Juegos', href: '#games' },
   { label: 'Galería', href: '#gallery' },
-  { label: 'Testimonios', href: '#testimonials' },
   { label: 'Contacto', href: '#contact' },
 ]
 
