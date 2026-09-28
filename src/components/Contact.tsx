@@ -8,7 +8,7 @@ const info = [
   {
     icon: MapPin,
     title: 'Dirección',
-    lines: ['Av. Central 1240', 'Ciudad, País'],
+    lines: ['Calle Las Palmas, La Quebrada', '(Ref. La Casa de Chaman)', 'al Costado de Barberia Birk'],
   },
   {
     icon: Phone,

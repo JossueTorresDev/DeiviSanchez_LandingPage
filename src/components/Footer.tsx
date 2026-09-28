@@ -71,7 +71,9 @@ export default function Footer() {
               Contacto
             </p>
             <ul className="flex flex-col gap-3 text-gray-600 text-sm">
-              <li>Av. Central 1240, Ciudad, País</li>
+              <li>Calle Las Palmas, La Quebrada</li>
+              <li>(Ref. La Casa de Chaman)</li>
+              <li>al Costado de Barberia Birk</li>
               <li>+1 (555) 234-5678</li>
               <li>info@labrasa.com</li>
               <li className="pt-1">

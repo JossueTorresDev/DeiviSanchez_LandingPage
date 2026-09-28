@@ -63,7 +63,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 px-4">
           <div className="flex items-center gap-2 text-gray-300 text-sm">
             <MapPin size={16} className="text-red-400 flex-shrink-0" />
-            <span>Av. Central 1240, Ciudad</span>
+            <span>Calle Las Palmas, La Quebrada</span>
           </div>
           <div className="hidden sm:block w-px h-4 bg-gray-600" />
           <div className="flex items-center gap-2 text-gray-300 text-sm">
