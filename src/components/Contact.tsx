@@ -1,7 +1,7 @@
 import { MapPin, Phone, Clock, Camera, Users, AtSign, MessageCircle } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 
-const WA_NUMBER = '51986294819'
+const WA_NUMBER = '51986113021'
 const WA_BASE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('¡Hola *Deivi Sanchez*! Me gustaría hacer una reserva de mesa.')}`
 
 const info = [
@@ -13,12 +13,12 @@ const info = [
   {
     icon: Phone,
     title: 'Teléfono',
-    lines: ['+51 986 294 819'],
+    lines: ['+51 986 113 021'],
   },
   {
     icon: Clock,
     title: 'Horario',
-    lines: ['Lun – Vie: 12:00 – 23:00', 'Sáb – Dom: 12:00 – 00:00'],
+    lines: ['Mié – Sáb: 6:00 pm – 11:30 pm', 'Dom: 6:00 pm – 11:00 pm'],
   },
 ]
 
@@ -32,7 +32,7 @@ export default function Contact() {
         '¡Hola *Deivi Sanchez*! Me gustaría pedir lo siguiente:',
         '',
         ...cart.map(
-          (c) => `• *${c.item.name}* x${c.qty} — S/ ${(c.item.price * c.qty).toFixed(2)}`
+          (c) => `• *${c.item.name}*${c.selectedOption ? ` (${c.selectedOption})` : ''} x${c.qty} — S/ ${(c.item.price * c.qty).toFixed(2)}`
         ),
         '',
         `*Total estimado: S/ ${total.toFixed(2)}*`,

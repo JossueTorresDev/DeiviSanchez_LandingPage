@@ -11,10 +11,15 @@ import Games from './components/Games'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CartDrawer from './components/CartDrawer'
+import ClosedModal, { closedConfig } from './components/ClosedModal'
 import type { MenuItem } from './data/menuData'
 
 function AppContent() {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
+  const [closedDismissed, setClosedDismissed] = useState(false)
+
+  // Muestra el modal de cierre solo si está activo y no fue descartado
+  const showClosed = closedConfig.isClosedToday && !closedDismissed
 
   return (
     <>
@@ -34,6 +39,9 @@ function AppContent() {
 
       {/* Cart drawer */}
       <CartDrawer />
+
+      {/* Closed today modal */}
+      {showClosed && <ClosedModal onClose={() => setClosedDismissed(true)} />}
     </>
   )
 }

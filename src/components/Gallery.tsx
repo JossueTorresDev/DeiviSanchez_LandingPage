@@ -1,6 +1,8 @@
+import imgParrilla from '../assets/img/Parrilla.avif'
+
 const images = [
   {
-    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    src: imgParrilla,
     alt: 'Parrilla encendida',
     // desktop: big card | mobile: full width
     className: 'col-span-2 row-span-2 sm:col-span-2 sm:row-span-2',

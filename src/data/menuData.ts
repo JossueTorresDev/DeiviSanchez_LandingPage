@@ -1,17 +1,33 @@
 // Importación de imágenes reales del negocio
 import imgChuleta        from '../assets/img/chuleta.jpg'
-import imgChurrasco      from '../assets/img/churrasco.jpg'
+import imgChurrasco      from '../assets/img/Churrasco de Carne.jpg'
 import imgPollo          from '../assets/img/pollo a la plancha.jpg'
 import imgAnticuchos     from '../assets/img/anticuchos.jpg'
 import imgMollejita      from '../assets/img/mollejita.jpg'
 import imgRachi          from '../assets/img/rachi.jpg'
+import imgChicharron     from '../assets/img/Chicharron de Pollo.jpg'
+import imgAlitasBBQ      from '../assets/img/alitas bbq.jpg'
 import imgMollejaRachi   from '../assets/img/anticuchos con molleja.jpg'
 import imgAntiMolleRachi from '../assets/img/anticucho con rachi.jpg'
 import imgComboTotal     from '../assets/img/anticucho, rachi, molleja.jpg'
-import imgAlitasBBQ      from '../assets/img/alitas bbq.jpg'
 import imgAcevichadas    from '../assets/img/acevichadas.jpg'
 import imgSalchipapa     from '../assets/img/salchipapa.jpg'
 import imgArroz          from '../assets/img/arroz blanco.jpg'
+import imgCaldoGallina   from '../assets/img/Caldo de Gallina.jpg'
+import imgTallarines     from '../assets/img/Tallarines al Pesto.webp'
+import imgEnsalada       from '../assets/img/Ensalada mixta.jpg'
+import imgMuña           from '../assets/img/Muña.webp'
+import imgMenta          from '../assets/img/Menta.jpg'
+import imgHierbaLuisa    from '../assets/img/Hierba Luisa.jpg'
+import imgManzanilla     from '../assets/img/Manzanilla.webp'
+import imgJamaica        from '../assets/img/Jamaica.jpg'
+import imgCalentito      from '../assets/img/Calentito.webp'
+import imgAnis           from '../assets/img/Anís.webp'
+import imgIncaKola       from '../assets/img/Inca Cola.jpg'
+import imgCocaCola       from '../assets/img/Coca Cola.jpg'
+import imgPepsi          from '../assets/img/Pepsi.jpg'
+import imgFanta          from '../assets/img/Fanta.webp'
+import imgAgua           from '../assets/img/Agua Cielo.jpg'
 
 export type MenuItem = {
   id: number
@@ -39,11 +55,14 @@ export const categories: Category[] = [
   { id: 'parrillas',    label: 'Zona Parrillas' },
   { id: 'anticuchos',   label: 'Anticuchos' },
   { id: 'alitas',       label: 'Alitas y Sopas' },
+  { id: 'pastas',       label: 'Pastas' },
   { id: 'acompanantes', label: 'Acompañantes' },
+  { id: 'bebidas',      label: 'Gaseosas y Agua' },
   { id: 'infusiones',   label: 'Infusiones y Tragos' },
 ]
 
 export const menuItems: MenuItem[] = [
+  // ── ZONA PARRILLAS ──────────────────────────────────────────
   {
     id: 1,
     name: 'Chuleta de Cerdo',
@@ -105,8 +124,8 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: 7,
-    name: 'Mollejita + Rachi',
-    description: 'Combinación de mollejitas y rachi a la parrilla. Incluye choclo, papas y ensalada.',
+    name: 'Molleja + Anticucho',
+    description: 'Combinación de molleja y anticucho a la parrilla. Incluye choclo, papas y ensalada.',
     price: 15,
     category: 'anticuchos',
     image: imgMollejaRachi,
@@ -114,8 +133,8 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: 8,
-    name: 'Anticucho + Molleja o Rachi',
-    description: 'Combo de anticucho con molleja o rachi a elección. Incluye choclo, papas y ensalada.',
+    name: 'Anticucho + Rachi',
+    description: 'Combo de anticucho con rachi a la parrilla. Incluye choclo, papas y ensalada.',
     price: 15,
     category: 'anticuchos',
     image: imgAntiMolleRachi,
@@ -126,7 +145,7 @@ export const menuItems: MenuItem[] = [
     id: 9,
     name: 'Mollejita + Rachi + Anticucho',
     description: 'El combo completo: mollejita, rachi y anticucho. Incluye choclo, papas y ensalada.',
-    price: 18,
+    price: 20,
     category: 'anticuchos',
     image: imgComboTotal,
     badge: 'Chef',
@@ -140,7 +159,7 @@ export const menuItems: MenuItem[] = [
     description: 'Caldo de gallina sustancioso y espeso, reconfortante y bien sazonado.',
     price: 10,
     category: 'alitas',
-    image: 'https://images.pexels.com/photos/6605203/pexels-photo-6605203.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: imgCaldoGallina,
     badge: 'Más Pedido',
     details: { extras: [] },
   },
@@ -148,9 +167,9 @@ export const menuItems: MenuItem[] = [
     id: 11,
     name: 'Chicharrón de Pollo',
     description: 'Chicharrón de pollo crocante y bien sazonado, frito en su punto exacto.',
-    price: 12,
+    price: 15,
     category: 'alitas',
-    image: 'https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: imgChicharron,
     details: { extras: [] },
   },
   {
@@ -182,6 +201,18 @@ export const menuItems: MenuItem[] = [
     details: { extras: ['Salsa Acebichada'] },
   },
 
+  // ── PASTAS ───────────────────────────────────────────────────
+  {
+    id: 25,
+    name: 'Tallarines al Pesto',
+    description: 'Tallarines al pesto preparados al momento. Elige tu complemento favorito.',
+    price: 15,
+    category: 'pastas',
+    image: imgTallarines,
+    badge: 'Nuevo',
+    details: { extras: ['Con Anticucho', 'Con Chuleta', 'Con Pollo Frito', 'Con Pollo', 'Con Churrasco'] },
+  },
+
   // ── ACOMPAÑANTES ─────────────────────────────────────────────
   {
     id: 15,
@@ -194,12 +225,59 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: 16,
-    name: 'Ensalada',
+    name: 'Ensalada Mixta',
     description: 'Porción de ensalada mixta fresca.',
     price: 5,
     category: 'acompanantes',
-    image: 'https://images.pexels.com/photos/1213710/pexels-photo-1213710.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: imgEnsalada,
     details: { extras: [] },
+  },
+
+  // ── GASEOSAS Y AGUA ──────────────────────────────────────────
+  {
+    id: 26,
+    name: 'Inca Kola',
+    description: 'La bebida dorada del Perú. Disponible en varios tamaños.',
+    price: 4,
+    category: 'bebidas',
+    image: imgIncaKola,
+    details: { extras: ['½ Litro — S/ 4', '2 Litros — S/ 8', '3 Litros — S/ 15'] },
+  },
+  {
+    id: 27,
+    name: 'Coca Cola',
+    description: 'El sabor clásico de siempre. Disponible en varios tamaños.',
+    price: 4,
+    category: 'bebidas',
+    image: imgCocaCola,
+    details: { extras: ['½ Litro — S/ 4', '2 Litros — S/ 8', '3 Litros — S/ 15'] },
+  },
+  {
+    id: 28,
+    name: 'Pepsi',
+    description: 'Pepsi refrescante. Disponible en varios tamaños.',
+    price: 4,
+    category: 'bebidas',
+    image: imgPepsi,
+    details: { extras: ['½ Litro — S/ 4', '3 Litros — S/ 15'] },
+  },
+  {
+    id: 29,
+    name: 'Fanta Naranja',
+    description: 'Fanta sabor naranja, dulce y refrescante.',
+    price: 4,
+    category: 'bebidas',
+    image: imgFanta,
+    details: { extras: ['Tamaño normal — S/ 4'] },
+  },
+  {
+    id: 30,
+    name: 'Agua Cielo',
+    description: 'Agua mineral Cielo, pura y refrescante.',
+    price: 2,
+    category: 'bebidas',
+    image: imgAgua,
+    details: { extras: ['½ Litro — S/ 2', '1 Litro — S/ 3'] },
   },
 
   // ── INFUSIONES Y TRAGOS ──────────────────────────────────────
@@ -209,7 +287,7 @@ export const menuItems: MenuItem[] = [
     description: 'Infusión de muña, hierba andina de propiedades digestivas.',
     price: 3,
     category: 'infusiones',
-    image: 'https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: imgMuña,
     details: { extras: [] },
   },
   {
@@ -218,16 +296,7 @@ export const menuItems: MenuItem[] = [
     description: 'Infusión de menta fresca, refrescante y digestiva.',
     price: 3,
     category: 'infusiones',
-    image: 'https://images.pexels.com/photos/230477/pexels-photo-230477.jpeg?auto=compress&cs=tinysrgb&w=600',
-    details: { extras: [] },
-  },
-  {
-    id: 19,
-    name: 'Boldo',
-    description: 'Infusión de boldo, ideal para la digestión.',
-    price: 3,
-    category: 'infusiones',
-    image: 'https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: imgMenta,
     details: { extras: [] },
   },
   {
@@ -236,7 +305,7 @@ export const menuItems: MenuItem[] = [
     description: 'Infusión de hierba luisa, aromática y relajante.',
     price: 3,
     category: 'infusiones',
-    image: 'https://images.pexels.com/photos/3593432/pexels-photo-3593432.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: imgHierbaLuisa,
     details: { extras: [] },
   },
   {
@@ -245,7 +314,7 @@ export const menuItems: MenuItem[] = [
     description: 'Infusión de manzanilla, suave y tranquilizante.',
     price: 3,
     category: 'infusiones',
-    image: 'https://images.pexels.com/photos/905485/pexels-photo-905485.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: imgManzanilla,
     details: { extras: [] },
   },
   {
@@ -254,7 +323,7 @@ export const menuItems: MenuItem[] = [
     description: 'Infusión de flor de jamaica, refrescante y con antioxidantes.',
     price: 3,
     category: 'infusiones',
-    image: 'https://images.pexels.com/photos/1587830/pexels-photo-1587830.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: imgJamaica,
     details: { extras: [] },
   },
   {
@@ -263,8 +332,17 @@ export const menuItems: MenuItem[] = [
     description: 'Trago caliente de la casa, perfecto para las noches frías.',
     price: 7,
     category: 'infusiones',
-    image: 'https://images.pexels.com/photos/1793035/pexels-photo-1793035.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: imgCalentito,
     badge: 'Chef',
+    details: { extras: [] },
+  },
+  {
+    id: 24,
+    name: 'Anís Estrella',
+    description: 'Infusión de anís estrella, aromática y reconfortante. Ideal para la digestión.',
+    price: 3,
+    category: 'infusiones',
+    image: imgAnis,
     details: { extras: [] },
   },
 ]

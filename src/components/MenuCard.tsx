@@ -17,6 +17,17 @@ export default function MenuCard({ item, onViewDetails }: Props) {
   const { addToCart, isInCart } = useCart()
   const inCart = isInCart(item.id)
 
+  // Si el item tiene extras/opciones para elegir, abre el modal primero
+  const hasOptions = item.details.extras && item.details.extras.length > 0
+
+  const handleAdd = () => {
+    if (hasOptions) {
+      onViewDetails(item)
+    } else {
+      addToCart(item)
+    }
+  }
+
   return (
     <article className="bg-[#161616] border border-white/8 rounded-2xl overflow-hidden flex flex-col group hover:border-red-700/40 transition-all duration-300 hover:shadow-xl hover:shadow-red-900/10">
       {/* Image */}
@@ -74,16 +85,16 @@ export default function MenuCard({ item, onViewDetails }: Props) {
           <span className="text-2xl font-black text-red-400">S/ {item.price.toFixed(2)}</span>
 
           <button
-            onClick={() => addToCart(item)}
+            onClick={handleAdd}
             className={`flex items-center gap-1.5 px-4 py-2 text-white text-sm font-semibold rounded-full transition-all duration-200 ${
-              inCart
+              inCart && !hasOptions
                 ? 'bg-green-600 hover:bg-green-500'
                 : 'bg-red-700 hover:bg-red-600'
             }`}
-            aria-label={inCart ? `${item.name} ya está en tu pedido` : `Agregar ${item.name} al pedido`}
+            aria-label={`${hasOptions ? 'Ver opciones de' : 'Agregar'} ${item.name}`}
           >
-            {inCart ? <Check size={14} /> : <Plus size={14} />}
-            {inCart ? 'Agregado' : 'Agregar'}
+            {inCart && !hasOptions ? <Check size={14} /> : <Plus size={14} />}
+            {hasOptions ? 'Elegir opción' : inCart ? 'Agregado' : 'Agregar'}
           </button>
         </div>
       </div>

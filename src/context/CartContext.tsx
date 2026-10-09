@@ -4,15 +4,17 @@ import type { MenuItem } from '../data/menuData'
 export type CartItem = {
   item: MenuItem
   qty: number
+  selectedOption?: string  // opción elegida (ej: "Con Anticucho")
+  cartKey: string          // id único: itemId + opción
 }
 
 type CartContextType = {
   cart: CartItem[]
   total: number
   itemCount: number
-  addToCart: (item: MenuItem) => void
-  removeFromCart: (id: number) => void
-  updateQty: (id: number, qty: number) => void
+  addToCart: (item: MenuItem, selectedOption?: string) => void
+  removeFromCart: (cartKey: string) => void
+  updateQty: (cartKey: string, qty: number) => void
   clearCart: () => void
   isInCart: (id: number) => boolean
   drawerOpen: boolean
@@ -26,29 +28,30 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([])
   const [drawerOpen, setDrawerOpen] = useState(false)
 
-  const addToCart = useCallback((item: MenuItem) => {
+  const addToCart = useCallback((item: MenuItem, selectedOption?: string) => {
+    const cartKey = selectedOption ? `${item.id}-${selectedOption}` : `${item.id}`
     setCart((prev) => {
-      const existing = prev.find((c) => c.item.id === item.id)
+      const existing = prev.find((c) => c.cartKey === cartKey)
       if (existing) {
         return prev.map((c) =>
-          c.item.id === item.id ? { ...c, qty: c.qty + 1 } : c
+          c.cartKey === cartKey ? { ...c, qty: c.qty + 1 } : c
         )
       }
-      return [...prev, { item, qty: 1 }]
+      return [...prev, { item, qty: 1, selectedOption, cartKey }]
     })
     setDrawerOpen(true)
   }, [])
 
-  const removeFromCart = useCallback((id: number) => {
-    setCart((prev) => prev.filter((c) => c.item.id !== id))
+  const removeFromCart = useCallback((cartKey: string) => {
+    setCart((prev) => prev.filter((c) => c.cartKey !== cartKey))
   }, [])
 
-  const updateQty = useCallback((id: number, qty: number) => {
+  const updateQty = useCallback((cartKey: string, qty: number) => {
     if (qty <= 0) {
-      setCart((prev) => prev.filter((c) => c.item.id !== id))
+      setCart((prev) => prev.filter((c) => c.cartKey !== cartKey))
     } else {
       setCart((prev) =>
-        prev.map((c) => (c.item.id === id ? { ...c, qty } : c))
+        prev.map((c) => (c.cartKey === cartKey ? { ...c, qty } : c))
       )
     }
   }, [])

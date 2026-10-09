@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Flame, Menu, X } from 'lucide-react'
 import CartButton from './CartButton'
 
-const WA_URL = `https://wa.me/51986294819?text=${encodeURIComponent('¡Hola *Deivi Sanchez*! Me gustaría hacer una reserva de mesa.')}`
+const WA_URL = `https://wa.me/51986113021?text=${encodeURIComponent('¡Hola *Deivi Sanchez*! Me gustaría hacer una reserva de mesa.')}`
 
 const links = [
   { label: 'Inicio', href: '#hero' },

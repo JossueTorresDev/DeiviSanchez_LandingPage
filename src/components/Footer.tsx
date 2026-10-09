@@ -25,8 +25,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
-              Desde 2005, ofrecemos la mejor experiencia a la parrilla. Tradición,
-              fuego y sabor en cada plato.
+              Desde 2026, parrilla callejera con sabor auténtico.
+              Fuego, sazón y buena mesa en La Quebrada.
             </p>
             <div className="flex items-center gap-3 mt-6">
               {[
@@ -74,14 +74,13 @@ export default function Footer() {
               <li>Calle Las Palmas, La Quebrada</li>
               <li>(Ref. La Casa de Chaman)</li>
               <li>al Costado de Barberia Birk</li>
-              <li>+1 (555) 234-5678</li>
-              <li>info@labrasa.com</li>
+              <li>+51 986 113 021</li>
               <li className="pt-1">
                 <span className="text-white">Horario:</span>
                 <br />
-                Lun – Vie: 12:00 – 23:00
+                Mié – Sáb: 6:00 pm – 11:30 pm
                 <br />
-                Sáb – Dom: 12:00 – 00:00
+                Dom: 6:00 pm – 11:00 pm
               </li>
             </ul>
           </div>

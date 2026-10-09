@@ -1,6 +1,6 @@
 import { ChevronDown, MapPin, Clock, Star } from 'lucide-react'
 
-const WA_URL = `https://wa.me/51986294819?text=${encodeURIComponent('¡Hola *Deivi Sanchez*! Me gustaría hacer una reserva de mesa.')}`
+const WA_URL = `https://wa.me/51986113021?text=${encodeURIComponent('¡Hola *Deivi Sanchez*! Me gustaría hacer una reserva de mesa.')}`
 
 export default function Hero() {
   return (
@@ -24,16 +24,16 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 bg-red-700/20 border border-red-700/40 rounded-full px-4 py-1.5 mb-8">
           <Star size={13} className="text-yellow-400 fill-yellow-400" />
           <span className="text-yellow-400 text-xs font-semibold tracking-widest uppercase">
-            Parrilla Auténtica desde 2005
+            Parrilla Callejera desde 2026
           </span>
           <Star size={13} className="text-yellow-400 fill-yellow-400" />
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
           El Sabor de la{' '}
-          <span className="text-red-500">Brasa</span>{' '}
+          <span className="text-red-500">Calle</span>{' '}
           <br className="hidden md:block" />
-          en Cada Corte
+          a la Parrilla
         </h1>
 
         <p className="text-gray-300 text-base md:text-xl max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-2">
@@ -68,7 +68,7 @@ export default function Hero() {
           <div className="hidden sm:block w-px h-4 bg-gray-600" />
           <div className="flex items-center gap-2 text-gray-300 text-sm">
             <Clock size={16} className="text-red-400 flex-shrink-0" />
-            <span>Lun – Dom: 12:00 – 23:00</span>
+            <span>Mié – Dom: 6:00 – 11:00</span>
           </div>
           <div className="hidden sm:block w-px h-4 bg-gray-600" />
           <div className="flex items-center gap-1 text-gray-300 text-sm">

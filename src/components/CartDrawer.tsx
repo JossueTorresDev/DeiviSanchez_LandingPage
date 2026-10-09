@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext'
 const WA_NUMBER = '51986294819'
 
 function buildWhatsAppMsg(
-  cart: { item: { name: string; price: number }; qty: number }[],
+  cart: { item: { name: string; price: number }; qty: number; selectedOption?: string }[],
   total: number
 ) {
   const lines = [
@@ -13,7 +13,7 @@ function buildWhatsAppMsg(
     '',
     ...cart.map(
       (c) =>
-        `• *${c.item.name}* x${c.qty} — S/ ${(c.item.price * c.qty).toFixed(2)}`
+        `• *${c.item.name}*${c.selectedOption ? ` (${c.selectedOption})` : ''} x${c.qty} — S/ ${(c.item.price * c.qty).toFixed(2)}`
     ),
     '',
     `*Total estimado: S/ ${total.toFixed(2)}*`,
@@ -123,9 +123,9 @@ export default function CartDrawer() {
             </div>
           ) : (
             <ul className="flex flex-col gap-3">
-              {cart.map(({ item, qty }) => (
+              {cart.map(({ item, qty, selectedOption, cartKey }) => (
                 <li
-                  key={item.id}
+                  key={cartKey}
                   className="flex items-center gap-4 bg-white/4 border border-white/8 rounded-xl p-3"
                 >
                   {/* Thumb */}
@@ -142,6 +142,9 @@ export default function CartDrawer() {
                     <p className="text-white text-sm font-semibold leading-tight truncate">
                       {item.name}
                     </p>
+                    {selectedOption && (
+                      <p className="text-red-400/80 text-xs mt-0.5 truncate">{selectedOption}</p>
+                    )}
                     <p className="text-red-400 text-sm font-bold mt-0.5">
                       S/ {(item.price * qty).toFixed(2)}
                     </p>
@@ -150,7 +153,7 @@ export default function CartDrawer() {
                   {/* Qty controls */}
                   <div className="flex items-center gap-1.5 flex-shrink-0">
                     <button
-                      onClick={() => updateQty(item.id, qty - 1)}
+                      onClick={() => updateQty(cartKey, qty - 1)}
                       className="w-7 h-7 rounded-full bg-white/8 hover:bg-red-700/30 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
                       aria-label="Reducir cantidad"
                     >
@@ -160,14 +163,14 @@ export default function CartDrawer() {
                       {qty}
                     </span>
                     <button
-                      onClick={() => updateQty(item.id, qty + 1)}
+                      onClick={() => updateQty(cartKey, qty + 1)}
                       className="w-7 h-7 rounded-full bg-white/8 hover:bg-red-700/30 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
                       aria-label="Aumentar cantidad"
                     >
                       <Plus size={12} />
                     </button>
                     <button
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => removeFromCart(cartKey)}
                       className="w-7 h-7 rounded-full bg-white/5 hover:bg-red-700/20 flex items-center justify-center text-gray-600 hover:text-red-400 transition-colors ml-1"
                       aria-label={`Eliminar ${item.name}`}
                     >

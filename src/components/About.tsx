@@ -1,10 +1,9 @@
-import { Award, Flame, Users, UtensilsCrossed } from 'lucide-react'
+import { Flame, Users, UtensilsCrossed } from 'lucide-react'
 
 const stats = [
-  { icon: Flame, value: '20+', label: 'Años de tradición' },
-  { icon: UtensilsCrossed, value: '60+', label: 'Platos en el menú' },
-  { icon: Users, value: '500+', label: 'Clientes semanales' },
-  { icon: Award, value: '12', label: 'Premios gastronómicos' },
+  { icon: Flame, value: '2026', label: 'Año de inicio' },
+  { icon: UtensilsCrossed, value: '15+', label: 'Platos en el menú' },
+  { icon: Users, value: '50+', label: 'Clientes semanales' },
 ]
 
 export default function About() {
@@ -24,8 +23,8 @@ export default function About() {
             </div>
             {/* Floating badge — adjusted so it doesn't clip on mobile */}
             <div className="absolute bottom-0 right-0 sm:-bottom-6 sm:-right-6 bg-red-700 text-white rounded-2xl px-5 py-3 sm:px-6 sm:py-4 shadow-2xl shadow-red-900/50">
-              <p className="text-2xl sm:text-3xl font-black leading-none">20+</p>
-              <p className="text-xs sm:text-sm text-red-200 mt-1">Años de sabor</p>
+              <p className="text-2xl sm:text-3xl font-black leading-none">2026</p>
+              <p className="text-xs sm:text-sm text-red-200 mt-1">Desde el 2026</p>
             </div>
           </div>
 
@@ -39,15 +38,14 @@ export default function About() {
               <span className="text-red-500">fuego</span> y la carne
             </h2>
             <p className="text-gray-400 text-base leading-relaxed mb-5">
-              En <strong className="text-white">La Brasa</strong> creemos que
-              una buena parrilla es un arte. Desde 2005, seleccionamos los
-              mejores cortes de res, cerdo y cordero, marinados con recetas
-              familiares que han pasado de generación en generación.
+              En <strong className="text-white">Sandoval</strong> creemos que
+              una buena parrilla callejera es un arte. Desde 2026, preparamos
+              los mejores anticuchos, parrillas y alitas con recetas que conquistan
+              el paladar de cada cliente.
             </p>
             <p className="text-gray-400 text-base leading-relaxed mb-10">
-              Nuestros parrilleros dominan el fuego con décadas de experiencia,
-              logrando ese punto perfecto que convierte una comida en un
-              recuerdo memorable.
+              Nuestro fuego y sazón logran ese punto perfecto que convierte
+              una comida en la calle en un recuerdo memorable.
             </p>
 
             {/* Stats grid */}
