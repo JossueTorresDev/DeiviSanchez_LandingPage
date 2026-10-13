@@ -1,7 +1,7 @@
 import { Flame, Users, UtensilsCrossed } from 'lucide-react'
 
 const stats = [
-  { icon: Flame, value: '2026', label: 'Año de inicio' },
+  { icon: Flame, value: 'Desde', label: '2026' },
   { icon: UtensilsCrossed, value: '15+', label: 'Platos en el menú' },
   { icon: Users, value: '50+', label: 'Clientes semanales' },
 ]
@@ -22,9 +22,10 @@ export default function About() {
               />
             </div>
             {/* Floating badge — adjusted so it doesn't clip on mobile */}
-            <div className="absolute bottom-0 right-0 sm:-bottom-6 sm:-right-6 bg-red-700 text-white rounded-2xl px-5 py-3 sm:px-6 sm:py-4 shadow-2xl shadow-red-900/50">
-              <p className="text-2xl sm:text-3xl font-black leading-none">2026</p>
-              <p className="text-xs sm:text-sm text-red-200 mt-1">Desde el 2026</p>
+            <div className="absolute bottom-0 right-0 sm:-bottom-6 sm:-right-6 bg-red-700 text-white rounded-2xl px-6 py-4 sm:px-7 sm:py-5 shadow-2xl shadow-red-900/50 text-center">
+              <p className="text-sm sm:text-base font-semibold tracking-widest uppercase text-red-200 leading-none mb-1">Desde</p>
+              <div className="w-full h-px bg-red-500/50 mb-1" />
+              <p className="text-3xl sm:text-4xl font-black leading-none tracking-tight">2026</p>
             </div>
           </div>
 
@@ -59,8 +60,17 @@ export default function About() {
                     <Icon size={20} className="text-red-400" />
                   </div>
                   <div>
-                    <p className="text-2xl font-black text-white leading-none">{value}</p>
-                    <p className="text-gray-500 text-xs mt-0.5">{label}</p>
+                    {value === 'Desde' ? (
+                      <>
+                        <p className="text-2xl font-black text-white leading-none">2026</p>
+                        <p className="text-gray-500 text-xs mt-0.5">Desde este año</p>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-2xl font-black text-white leading-none">{value}</p>
+                        <p className="text-gray-500 text-xs mt-0.5">{label}</p>
+                      </>
+                    )}
                   </div>
                 </div>
               ))}
