@@ -1,4 +1,5 @@
-import { ChevronDown, MapPin, Clock, Star } from 'lucide-react'
+import { ChevronDown, MapPin, Clock, Star, Ban } from 'lucide-react'
+import { schedule } from '../config/schedule'
 
 const WA_URL = `https://wa.me/51986113021?text=${encodeURIComponent('¡Hola *Deivi Sanchez*! Me gustaría hacer una reserva de mesa.')}`
 
@@ -49,14 +50,21 @@ export default function Hero() {
           >
             Ver el Menú
           </a>
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 border-2 border-white/30 hover:border-white/60 text-white font-bold text-base rounded-full transition-colors duration-200 backdrop-blur-sm"
-          >
-            Reservar Mesa
-          </a>
+          {schedule.isClosedToday ? (
+            <span className="flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/15 text-gray-500 font-bold text-base rounded-full cursor-not-allowed">
+              <Ban size={16} />
+              Sin atención ahora
+            </span>
+          ) : (
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border-2 border-white/30 hover:border-white/60 text-white font-bold text-base rounded-full transition-colors duration-200 backdrop-blur-sm"
+            >
+              Reservar Mesa
+            </a>
+          )}
         </div>
 
         {/* Info pills */}

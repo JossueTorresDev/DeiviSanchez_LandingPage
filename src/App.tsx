@@ -11,7 +11,9 @@ import Games from './components/Games'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CartDrawer from './components/CartDrawer'
-import ClosedModal, { closedConfig } from './components/ClosedModal'
+import ClosedModal from './components/ClosedModal'
+import Reviews from './components/Reviews'
+import { schedule } from './config/schedule'
 import type { MenuItem } from './data/menuData'
 
 function AppContent() {
@@ -19,7 +21,7 @@ function AppContent() {
   const [closedDismissed, setClosedDismissed] = useState(false)
 
   // Muestra el modal de cierre solo si está activo y no fue descartado
-  const showClosed = closedConfig.isClosedToday && !closedDismissed
+  const showClosed = schedule.isClosedToday && !closedDismissed
 
   return (
     <>
@@ -30,6 +32,7 @@ function AppContent() {
         <Menu onOpenModal={setSelectedItem} />
         <Games />
         <Gallery />
+        <Reviews />
         <Contact />
       </main>
       <Footer />

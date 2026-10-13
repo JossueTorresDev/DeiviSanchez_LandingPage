@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Flame, Menu, X } from 'lucide-react'
+import { Flame, Menu, X, Ban } from 'lucide-react'
 import CartButton from './CartButton'
+import { schedule } from '../config/schedule'
 
 const WA_URL = `https://wa.me/51986113021?text=${encodeURIComponent('¡Hola *Deivi Sanchez*! Me gustaría hacer una reserva de mesa.')}`
 
@@ -10,12 +11,14 @@ const links = [
   { label: 'Menú', href: '#menu' },
   { label: 'Juegos', href: '#games' },
   { label: 'Galería', href: '#gallery' },
+  { label: 'Reseñas', href: '#reviews' },
   { label: 'Contacto', href: '#contact' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const isClosed = schedule.isClosedToday
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -56,14 +59,21 @@ export default function Navbar() {
         {/* CTA + Cart */}
         <div className="hidden md:flex items-center gap-3">
           <CartButton />
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-700 hover:bg-red-600 text-white text-sm font-semibold rounded-full transition-colors duration-200"
-          >
-            Reservar Mesa
-          </a>
+          {isClosed ? (
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/8 text-gray-500 text-sm font-semibold rounded-full cursor-not-allowed">
+              <Ban size={14} />
+              Sin atención
+            </span>
+          ) : (
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-700 hover:bg-red-600 text-white text-sm font-semibold rounded-full transition-colors duration-200"
+            >
+              Reservar Mesa
+            </a>
+          )}
         </div>
 
         {/* Mobile burger */}
@@ -92,15 +102,22 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            className="mt-2 px-5 py-3 bg-red-700 hover:bg-red-600 text-white text-sm font-semibold rounded-full text-center transition-colors"
-          >
-            Reservar Mesa
-          </a>
+          {isClosed ? (
+            <span className="mt-2 flex items-center justify-center gap-2 px-5 py-3 bg-white/8 text-gray-500 text-sm font-semibold rounded-full text-center cursor-not-allowed">
+              <Ban size={14} />
+              Sin atención ahora
+            </span>
+          ) : (
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-2 px-5 py-3 bg-red-700 hover:bg-red-600 text-white text-sm font-semibold rounded-full text-center transition-colors"
+            >
+              Reservar Mesa
+            </a>
+          )}
         </div>
       )}
     </header>

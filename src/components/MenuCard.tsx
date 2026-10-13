@@ -1,6 +1,7 @@
-import { Eye, Plus, Check } from 'lucide-react'
+import { Eye, Plus, Check, Ban } from 'lucide-react'
 import type { MenuItem } from '../data/menuData'
 import { useCart } from '../context/CartContext'
+import { schedule } from '../config/schedule'
 
 type Props = {
   item: MenuItem
@@ -86,15 +87,22 @@ export default function MenuCard({ item, onViewDetails }: Props) {
 
           <button
             onClick={handleAdd}
+            disabled={schedule.isClosedToday}
             className={`flex items-center gap-1.5 px-4 py-2 text-white text-sm font-semibold rounded-full transition-all duration-200 ${
-              inCart && !hasOptions
+              schedule.isClosedToday
+                ? 'bg-white/10 text-gray-500 cursor-not-allowed'
+                : inCart && !hasOptions
                 ? 'bg-green-600 hover:bg-green-500'
                 : 'bg-red-700 hover:bg-red-600'
             }`}
-            aria-label={`${hasOptions ? 'Ver opciones de' : 'Agregar'} ${item.name}`}
+            aria-label={schedule.isClosedToday ? 'No hay atención hoy' : `${hasOptions ? 'Ver opciones de' : 'Agregar'} ${item.name}`}
           >
-            {inCart && !hasOptions ? <Check size={14} /> : <Plus size={14} />}
-            {hasOptions ? 'Elegir opción' : inCart ? 'Agregado' : 'Agregar'}
+            {schedule.isClosedToday
+              ? <><Ban size={14} /> Sin atención</>
+              : inCart && !hasOptions
+              ? <><Check size={14} /> Agregado</>
+              : <><Plus size={14} /> {hasOptions ? 'Elegir opción' : 'Agregar'}</>
+            }
           </button>
         </div>
       </div>

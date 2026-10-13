@@ -1,5 +1,6 @@
-import { MapPin, Phone, Clock, Camera, Users, AtSign, MessageCircle } from 'lucide-react'
+import { MapPin, Phone, Clock, Camera, Users, AtSign, MessageCircle, Ban } from 'lucide-react'
 import { useCart } from '../context/CartContext'
+import { schedule } from '../config/schedule'
 
 const WA_NUMBER = '51986113021'
 const WA_BASE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('¡Hola *Deivi Sanchez*! Me gustaría hacer una reserva de mesa.')}`
@@ -164,7 +165,12 @@ export default function Contact() {
 
             {/* CTA buttons */}
             <div className="flex flex-col gap-3">
-              {hasOrder ? (
+              {schedule.isClosedToday ? (
+                <div className="w-full flex items-center justify-center gap-2.5 py-4 bg-white/8 text-gray-500 text-sm font-bold rounded-full cursor-not-allowed">
+                  <Ban size={16} />
+                  Sin atención hoy — vuelve el {schedule.nextDay}
+                </div>
+              ) : hasOrder ? (
                 <button
                   onClick={handleWhatsApp}
                   className="w-full flex items-center justify-center gap-2.5 py-4 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-sm rounded-full transition-colors shadow-lg shadow-green-900/30"
@@ -180,15 +186,17 @@ export default function Contact() {
                   Seleccionar platos del menú
                 </button>
               )}
-              <a
-                href={WA_BASE}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 border border-white/15 hover:border-[#25D366]/50 text-gray-400 hover:text-white text-sm font-medium rounded-full transition-colors"
-              >
-                <MessageCircle size={15} />
-                Solo quiero consultar
-              </a>
+              {!schedule.isClosedToday && (
+                <a
+                  href={WA_BASE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3 border border-white/15 hover:border-[#25D366]/50 text-gray-400 hover:text-white text-sm font-medium rounded-full transition-colors"
+                >
+                  <MessageCircle size={15} />
+                  Solo quiero consultar
+                </a>
+              )}
             </div>
           </div>
         </div>

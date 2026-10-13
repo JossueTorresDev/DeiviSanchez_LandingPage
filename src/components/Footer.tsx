@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Menú', href: '#menu' },
   { label: 'Juegos', href: '#games' },
   { label: 'Galería', href: '#gallery' },
+  { label: 'Reseñas', href: '#reviews' },
   { label: 'Contacto', href: '#contact' },
 ]
 

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
-import { X, Plus, Minus, Trash2, ShoppingBag, MessageCircle, UtensilsCrossed } from 'lucide-react'
+import { X, Plus, Minus, Trash2, ShoppingBag, MessageCircle, UtensilsCrossed, Ban } from 'lucide-react'
 import { useCart } from '../context/CartContext'
+import { schedule } from '../config/schedule'
 
 const WA_NUMBER = '51986294819'
 
@@ -193,13 +194,20 @@ export default function CartDrawer() {
             </div>
 
             {/* WhatsApp CTA */}
-            <button
-              onClick={handleReserve}
-              className="w-full flex items-center justify-center gap-2.5 py-4 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-sm rounded-full transition-colors shadow-lg shadow-green-900/30"
-            >
-              <MessageCircle size={18} />
-              Reservar y pedir por WhatsApp
-            </button>
+            {schedule.isClosedToday ? (
+              <div className="w-full flex items-center justify-center gap-2.5 py-4 bg-white/8 text-gray-500 text-sm font-bold rounded-full cursor-not-allowed">
+                <Ban size={16} />
+                Sin atención hoy
+              </div>
+            ) : (
+              <button
+                onClick={handleReserve}
+                className="w-full flex items-center justify-center gap-2.5 py-4 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-sm rounded-full transition-colors shadow-lg shadow-green-900/30"
+              >
+                <MessageCircle size={18} />
+                Reservar y pedir por WhatsApp
+              </button>
+            )}
 
             <p className="text-gray-700 text-xs text-center">
               Se abrirá WhatsApp con tu pedido listo para enviar
